@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a routerLink="address" class="nav-link" routerLinkActive="active">Add New Address</a>
+        </li>
+    </ul>
+</nav>
+<br>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Address List</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Address Id</th>
+                    <th>Address Line One</th>
+                    <th>Address Line Two</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Country</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let address of addresses | async">
+                    
+                    <td>{{address.addressId}}</td>
+                    <td>{{address.addressLineOne}}</td>
+                    <td>{{address.addressLineTwo}}</td>
+                    <td>{{address.city}}</td>
+                    <td>{{address.state}}</td>
+                    <td>{{address.country}}</td>
+                    <td><button (click)="deleteAddress(address.addressId)" class="btn btn-danger">Delete</button>
+                        <button (click)="updateAddress(address.addressId)" class="btn btn-info"
+                            style="margin-left: 10px">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

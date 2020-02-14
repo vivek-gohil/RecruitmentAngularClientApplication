@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a routerLink="addrole" class="nav-link" routerLinkActive="active">Add New Employee Role</a>
+        </li>
+    </ul>
+</nav>
+<br>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Employee Roles List</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>RoleId</th>
+                    <th>Designation</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employeeRole of employeeRoles | async">
+                    <td>{{employeeRole.roleId}}</td>
+                    <td>{{employeeRole.designation}}</td>
+                    <td><button (click)="deleteEmployeeRole(employeeRole.roleId)" class="btn btn-danger">Delete</button>
+                        <button (click)="updateEmployeeRole(employeeRole.roleId)" class="btn btn-info"
+                            style="margin-left: 10px">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
