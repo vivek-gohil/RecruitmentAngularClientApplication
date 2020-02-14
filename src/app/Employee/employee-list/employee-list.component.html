@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a routerLink="employee" class="nav-link" routerLinkActive="active">Add New Employee</a>
+        </li>
+    </ul>
+</nav>
+<br>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Address List</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Employee Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Salary</th>
+                    <th>Active Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees | async">
+
+                    <td>{{employee.employeeId}}</td>
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td>{{employee.salary}}</td>
+                    <td>{{employee.active}}</td>
+                    <td><button (click)="deleteEmployee(employee.employeeId)" class="btn btn-danger">Delete</button>
+                        <button (click)="updateEmployee(employee.employeeId)" class="btn btn-info"
+                            style="margin-left: 10px">Update</button>
+                            <button (click)="getEmployee(employee.employeeId)" class="btn btn-info"
+                            style="margin-left: 10px">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

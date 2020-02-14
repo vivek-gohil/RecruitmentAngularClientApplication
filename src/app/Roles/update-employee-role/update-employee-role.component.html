@@ -1,0 +1,11 @@
+<h3>Update Employee</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="designation">Designation</label>
+      <input type="text" class="form-control" id="designation" required [(ngModel)]="employeeRole.designation" name="designation">
+    </div>
+
+    <button type="submit" class="btn btn-success">Update Role</button>
+  </form>
+</div>
